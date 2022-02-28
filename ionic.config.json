@@ -1,0 +1,7 @@
+{
+  "name": "ResourcesRelationelles",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
