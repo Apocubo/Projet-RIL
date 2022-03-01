@@ -75,3 +75,15 @@ option{
     text-decoration: none;
     color: white;
 }
+
+.header-title{
+    width: 100%;
+    height: 374px;
+    background: violet;
+    background-image: url("APPLI WEB\img\image-header.jpg");
+}
+
+.header-title h1{
+    font-size: 64px;
+    font-weight: bold;
+}
