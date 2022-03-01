@@ -100,10 +100,12 @@ option{
 
 .portail-card{
     margin-top: -140px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1009px;
-    height: 380px;
+    margin-left: 215px;
+    margin-right: 215px;
+    padding-bottom: 14px;
+    
+    width: auto;
+    height: auto;
     background: rgb(253, 253, 253);
     text-align: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
