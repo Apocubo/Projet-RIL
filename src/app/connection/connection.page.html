@@ -12,14 +12,12 @@
       </nav>
 
       <div class="menu-composants">
-        <div class="choice-language">
-          <ion-select okText="OK" cancelText="Retour">
-            <ion-select-option value="Francais">Francais</ion-select-option>
-            <ion-select-option value="English">English</ion-select-option>
-            <ion-select-option value="Español">Español</ion-select-option>
-          </ion-select>
-        </div>
 
+        <select name="choice-language" class="choice-language">
+          <option value="Français">Français</option>
+          <option value="English">English</option>
+          <option value="Español">Español</option>
+        </select>
         <!--Search Button-->
         <div class="search-button">
           <ion-icon name="search-outline" class="bi"></ion-icon>
@@ -40,20 +38,12 @@
     <h1>RESOURCES RELATIONNELLES</h1>
   </section>
   <div class="portail-card">
-    <h2 class="card-title">Portail (RE) SOURCES RELATIONNELLES</h2>
+    <h2 class="card-title">CONNECTEZ-VOUS AU PORTAIL (RE) SOURCES RELATIONNELLES</h2>
     <p class="card-body">
-      Le ministère des Solidarités et de la santé a comme objectif est de mettre en œuvre la politique du <br>gouvernent
-      dans le domaine de la solidarité, la cohésion sociale, la santé publique et l’organisation <br>du système de
-      santé.
-      <br>
-      <br>
-      Dans le but d’améliorer la qualité de vie des citoyens et pour pouvoir partager des ressources et <br>permettre
-      aux citoyens d’échanger, le ministère a crée le portail (RE)Sources Relationnelles, qui est <br>un espace qui
-      propose des ressources et outils pour créer, renforcer et enrichir les relations des <br>citoyens.
-    </p>
-    <div class="card-button">
-      <a href="">En savoir plus ▶</a>
-    </div>
+      <p>Identifiant :</p>
+      <input type="text" />
+      <p>Mot de passe :</p>
+      <input type="text"/>
   </div>
 
   <div class="ministere-card">
@@ -61,8 +51,7 @@
     <p class="ministere-card-body">
       Le Ministère des Solidarité et de la Santé prend une part très importante dans la politique du <br>Gouvernement en
       matière de solidarité, de cohésion sociale et de la santé publique nationale et <br>également sur l’organisation
-      du système national de santé. <a href="https://solidarites-sante.gouv.fr/">Lire plus sur le Ministère des
-        Solidarités <br>et de la Santé...</a><br>
+      du système national de santé. <a href="">Lire plus sur le Ministère des Solidarités <br>et de la Santé...</a><br>
       <br>
       La première volonté du ministère est de créer un espace de partage comprenant un ou plusieurs <br>catalogue(s) de
       ressources en lien avec le développement personnel, ainsi qu’un espace d’échange <br>à propos de ces ressources.
@@ -108,10 +97,7 @@
       </ion-item>
     </ion-card>
   </ion-item>
-
-  <div class="card-button-autres-ressources">
-    <a href="">Voir d'autres ressources ▶</a>
-  </div>
+  <ion-button>Voir d'autres ressources</ion-button>
 
   <div class="social-network">
     <ion-icon name="logo-facebook"></ion-icon>
@@ -123,27 +109,7 @@
   </div>
 </ion-content>
 <ion-footer>
-  <ion-toolbar class="card-footer">
-    <p>Ministère des Solidarités et de la Santé<br>
-      14, avenue Duquesne 75350 PARIS 07 SP
-      <br>
-      Téléphone : 01 40 56 60 00
-    </p>
-    <ul>
-      <li><a>Plan du site</a></li>
-      <li><a>Accessibilité : non conforme</a></li>
-      <li><a>Mentions légales</a></li>
-      <li><a>Données personnelles et cookies</a></li>
-      <li><a>Contacts</a></li>
-      <li><a>Archives presse</a></li>
-    </ul>
-
-    <ul>
-      <li><a>www.legifrance.gouv.fr</a></li>
-      <li><a>www.service public.fr</a></li>
-      <li><a>www.gouvernement.fr</a></li>
-      <li><a>www.france.fr</a></li>
-    </ul>
+  <ion-toolbar>
 
     <p>Copyright 2022 © (RE)ssources relationelles | Tous droits réservés | Mentions légales
       Solution web proposée par WEB.CO | www.webco.fr | contact@webco.fr</p>

@@ -1,37 +1,13 @@
-body{
+* {
+  box-sizing: border-box;
+}
+
+body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
 
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-.top-bar{
+.top-bar {
   width: 100%;
   height: 157px;
   display: flex;
@@ -41,12 +17,12 @@ body{
   padding: 30px 95px 23px 70px;
 }
 
-.menu-composants{
+.menu-composants {
   display: flex;
   align-items: center;
 }
 
-.choice-language{
+.choice-language {
   width: 102px;
   height: 30px;
   left: 1121px;
@@ -61,15 +37,9 @@ body{
   margin-right: 25px;
 }
 
-option{
-  color: white;
-  padding: 9px 35px 10px 27px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-}
 
-.search-button{
+
+.search-button {
   width: 38px;
   height: 38px;
   left: 1248px;
@@ -80,12 +50,12 @@ option{
   margin-right: 25px;
 }
 
-.bi{
+.bi {
   margin-top: -8px;
   color: rgb(255, 255, 255);
 }
 
-.hamburger-menu{
+.hamburger-menu {
   width: 38px;
   height: 38px;
   left: 1248px;
@@ -95,76 +65,42 @@ option{
   padding: 10px;
 }
 
-.hamburger-menu a{
+.hamburger-menu a {
   margin-top: -8px;
   text-decoration: none;
   color: white;
 }
 
-.logo_index{
-  width: auto;
-  height : auto;
-
-}
-
-.div-texte-home{
-  margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-   font-size: 18pt;
-  margin-top: 53px;
-}
-
-.text-value{
-  font-size: 18pt;
-  text-align: center;
-
-}
-
-.card-resources img{
-  font-size: 18pt;
-  text-align: center;
-}
-
-.card-resources img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto
-}
-
-
-.header-title{
+.header-title {
   width: 100%;
-  max-width: 100%;
   height: 374px;
-  display: block;
   text-align: center;
   padding: 95px 205px 215px 205px;
-  background-image: url("../../assets/img/image-header.jpg"); 
+  background-image: url("../../assets/img/image-header.jpg");
 }
 
-.header-title h1{
-  height: 374px;
+.header-title h1 {
+  width: 100%;
+  margin: 0px;
   font-size: 64px;
   font-weight: bold;
   color: white;
 }
 
-.header-title h2{
+.header-title h2 {
   margin-top: 10px;
   font-size: 24px;
   font-weight: 500;
   color: white;
 }
 
-.portail-card{
+.portail-card {
   margin-top: -140px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 215px;
+  margin-right: 215px;
+  padding-bottom: 14px;
   width: auto;
   height: auto;
-  margin-right: 20%;
-  margin-left: 20%;
   background: rgb(253, 253, 253);
   text-align: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -178,14 +114,14 @@ option{
   color: #03989E;
 }
 
-.card-body p{
+.card-body p {
   padding-top: 0px;
   font-size: 18px;
   font-weight: 500;
   color: #000000;
 }
 
-.card-button{
+.card-button {
   margin: 0 auto;
   width: 223px;
   height: 60px;
@@ -194,33 +130,198 @@ option{
   border-radius: 30px;
 }
 
-.card-button a:hover{
- background: #f1a934;
-}
-
-.card-button a{
-  font-size: 20px;
+.card-button a {
+  font-size: 1em;
   font-weight: bold;
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
-.ministere-card{
+.ministere-card {
   margin-top: 53px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 256px;
 }
 
-.ministere-card-body{
+.ministere-card-body {
   text-align: center;
   font-size: 18px;
   font-weight: 500;
 }
 
-.social-network{
-  background-color: #03989E;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+.card-button-autres-ressources {
+  margin: 0 auto;
+  width: 223px;
+  height: 60px;
+  padding: 15px 22px 15px 22px;
+  background: #03989E;
+  border-radius: 30px;
+}
+
+.card-button-autres-ressources a {
+  font-size: 1em;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.card-footer {
+  background: #FF5C5C;
+  position: absolute;
+  width: 1440px;
+  height: 319px;
+  left: 0px;
+  top: 1295px;
+
+}
+
+
+
+
+/* Logo-RE-nouveau-blanc 1 */
+.logo-RE-nouveau-blanc {
+  position: absolute;
+  width: 255px;
+  height: 79px;
+  left: 212px;
+  top: 1308px;
+  background-image: url("../../assets/img/Logo-RE-nouveau-blanc.png");
+}
+
+/* Contact */
+.contact {
+  position: absolute;
+  width: 74px;
+  height: 20px;
+  left: 293px;
+  top: 1398px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+
+  color: #FFFFFF;
+
+
+}
+
+.information-sup1 {
+  /* Copyright 2022 © (RE)ssources relationelles | Tous droits réservés | Mentions légales */
+
+  position: absolute;
+  width: 723px;
+  height: 20px;
+  left: 358px;
+  top: 1555px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+
+  color: #FFFFFF;
+
+
+}
+
+/* Portail web développé par WEB.CO | www.webco.fr | contact@webco.fr */
+.information-sup2 {
+  position: absolute;
+  width: 626px;
+  height: 20px;
+  left: 407px;
+  top: 1584px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+
+  color: #210E0E;
+
+}
+
+/* Plan du site Accessibilité : non conforme Mentions légales Données personnelles et cookies Contacts Archives presse */
+.information-sup2 {
+
+  position: absolute;
+  width: 303px;
+  height: 129px;
+  left: 694px;
+  top: 1348px;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 26px;
+
+  color: #FFFFFF;
+
+}
+
+/* Group 1 */
+group1 {
+  position: absolute;
+  width: 227px;
+  height: 109px;
+  left: 1044px;
+  top: 1348px;
+}
+
+
+/* www.legifrance.gouv.fr www.service public.fr www.gouvernement.fr www.france.fr */
+.information-sup3{
+position: absolute;
+width: 227px;
+height: 109px;
+left: 1044px;
+top: 1348px;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 17px;
+line-height: 150.9%;
+/* or 26px */
+
+color: #FFFFFF;
+
+
+}
+
+.information-sup4{
+/* Ministère des Solidarités et de la Santé 14, avenue Duquesne 75350 PARIS 07 SP Téléphone : 01 40 56 60 00 */
+
+position: absolute;
+width: 353px;
+height: 60px;
+left: 163px;
+top: 1443px;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 17px;
+line-height: 21px;
+text-align: center;
+
+color: #FFFFFF;
+
+
+}
+/* Line 4 */
+.line4 {
+  position: absolute;
+  width: 35px;
+  height: 0px;
+  left: 312px;
+  top: 1426px;
+
+  border: 3px solid #FFFFFF;
 }
