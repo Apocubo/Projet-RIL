@@ -1,40 +1,4 @@
-<ion-content [fullscreen]="true">
-  <!--Header (menu)-->
-  <ion-header>
-    <header class="top-bar">
-      <nav class="menu-nav">
-        <a href="/home">
-          <img src="../../assets/img/logo-RE-nouveau 1.png" class="logo_index">
-        </a>
-        <a href="https://solidarites-sante.gouv.fr/">
-          <img src="../../assets/img/Mask Group.png" class="logo_index">
-        </a>
-      </nav>
-
-      <div class="menu-composants">
-        <div class="choice-language">
-          <ion-select okText="OK" cancelText="Retour">
-            <ion-select-option value="Francais">Francais</ion-select-option>
-            <ion-select-option value="English">English</ion-select-option>
-            <ion-select-option value="Español">Español</ion-select-option>
-          </ion-select>
-        </div>
-
-        <!--Search Button-->
-        <div class="search-button">
-          <ion-icon name="search-outline" class="bi"></ion-icon>
-        </div>
-
-        <div class="hamburger-menu">
-          <a href="">
-            <ion-icon name="menu-outline" class="bi"></ion-icon>
-          </a>
-        </div>
-      </div>
-    </header>
-  </ion-header>
-
-  <!-------------------------------------------------------------------------------->
+<ion-content >
   <!--Section Hero avec Titre de l'application-->
   <section class="header-title">
     <h1>RESOURCES RELATIONNELLES</h1>
@@ -121,31 +85,8 @@
     <ion-icon name="logo-youtube"></ion-icon>
 
   </div>
+  <app-footer></app-footer>
+
 </ion-content>
-<ion-footer>
-  <ion-toolbar class="card-footer">
-    <p>Ministère des Solidarités et de la Santé<br>
-      14, avenue Duquesne 75350 PARIS 07 SP
-      <br>
-      Téléphone : 01 40 56 60 00
-    </p>
-    <ul>
-      <li><a>Plan du site</a></li>
-      <li><a>Accessibilité : non conforme</a></li>
-      <li><a>Mentions légales</a></li>
-      <li><a>Données personnelles et cookies</a></li>
-      <li><a>Contacts</a></li>
-      <li><a>Archives presse</a></li>
-    </ul>
 
-    <ul>
-      <li><a>www.legifrance.gouv.fr</a></li>
-      <li><a>www.service public.fr</a></li>
-      <li><a>www.gouvernement.fr</a></li>
-      <li><a>www.france.fr</a></li>
-    </ul>
 
-    <p>Copyright 2022 © (RE)ssources relationelles | Tous droits réservés | Mentions légales
-      Solution web proposée par WEB.CO | www.webco.fr | contact@webco.fr</p>
-  </ion-toolbar>
-</ion-footer>
