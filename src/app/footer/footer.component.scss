@@ -3,6 +3,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+    block-size: auto;
 }
 
 .logo-RE-nouveau-blanc {
@@ -49,6 +50,11 @@
 
 }
 
+.information-company a{
+
+color: #210E0E;
+text-decoration: none;
+}
 .access-functions {
     list-style-type: none;
     font-family: 'Montserrat', sans-serif;
