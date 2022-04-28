@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header-title {
+  width: 100%;
+  height: 374px;
+  text-align: center;
+  padding: 95px 205px 215px 205px;
+  background-image: url("../../assets/img/image-header.jpg");
+}
+
+.header-title h1 {
+  width: 100%;
+  margin: 0px;
+  font-size: 64px;
+  font-weight: bold;
+  color: white;
+}
+
+.header-title h2 {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 500;
+  color: white;
+}
+
+.portail-card {
+  margin-top: -140px;
+  margin-left: 215px;
+  margin-right: 215px;
+  padding-bottom: 14px;
+  width: auto;
+  height: auto;
+  background: rgb(253, 253, 253);
+  text-align: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 13px;
+}
+
+.card-title {
+  padding-top: 18px;
+  font-size: 35px;
+  font-weight: 500;
+  color: #03989E;
+}
+
+.card-body p {
+  padding-top: 0px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.card-button {
+  margin: 0 auto;
+  width: 223px;
+  height: 60px;
+  padding: 15px 22px 15px 22px;
+  background: #FBBC58;
+  border-radius: 30px;
+}
+
+.card-button a {
+  font-size: 1em;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.ministere-card {
+  margin-top: 53px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 256px;
+}
+
+.ministere-card-body {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card-button-autres-ressources {
+  margin: 0 auto;
+  width: 223px;
+  height: 60px;
+  padding: 15px 22px 15px 22px;
+  background: #03989E;
+  border-radius: 30px;
+}
+
+.card-button-autres-ressources a {
+  font-size: 1em;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
