@@ -1,16 +1,18 @@
 .card-footer {
     background: #FF5C5C;
-    position: absolute;
-    bottom: 0;
+        bottom: 0;
     width: 100%;
     block-size: auto;
+    height: 450px;
+
 }
 
 .logo-RE-nouveau-blanc {
     width: 255px;
     height: 79px;
-    margin-left: 10%;
-
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 
 /* Contact */
@@ -21,8 +23,10 @@
     font-size: 17px;
     line-height: 21px;
     color: #FFFFFF;
-    margin-left: 10%;
-
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 
 .information-app {
@@ -30,8 +34,7 @@
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 17px;
-    line-height: 21px;
+    font-size: 1.05em;
     color: #FFFFFF;
 }
 
@@ -44,8 +47,7 @@
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 17px;
-    line-height: 21px;
+    font-size: 1.05em;
     color: #210E0E;
 
 }
@@ -60,9 +62,11 @@ text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 17px;
-    line-height: 26px;
+    font-size: 1.05em;
     color: #ffffff;
+    line-height: 1.5em;
+    float: left;
+
 }
 
 .access-functions a {
@@ -70,59 +74,26 @@ text-decoration: none;
     text-decoration: none;
 }
 
-/* Group 1 */
-group1 {
-    position: absolute;
-    width: 227px;
-    height: 109px;
-    left: 1044px;
-    top: 1348px;
-}
-
-
 .list-sites-gouv {
-
     list-style-type: none;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 150.9%;
+
+
 }
 
 .list-sites-gouv a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.information-sup4 {
-    /* Ministère des Solidarités et de la Santé 14, avenue Duquesne 75350 PARIS 07 SP Téléphone : 01 40 56 60 00 */
-
-    position: absolute;
-    width: 353px;
-    height: 60px;
-    left: 163px;
-    top: 1443px;
-
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 17px;
-    line-height: 21px;
-    text-align: center;
-
-    color: #FFFFFF;
-
+    font-size: 1.05em;
+    line-height: 1.5em;
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 10%;
 
 }
 
-/* Line 4 */
-.line4 {
-    position: absolute;
-    width: 35px;
-    height: 0px;
-    left: 312px;
-    top: 1426px;
-
-    border: 3px solid #FFFFFF;
+.informations{
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
 }
