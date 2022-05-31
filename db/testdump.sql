@@ -1,3 +1,9 @@
-ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'password';
+
+CREATE DATABASE test;
+
+CREATE TABLE Citoyen(
+    Id INTEGER,
+    Nom VARCHAR(255)
+)
 
 flush privileges;
