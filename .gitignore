@@ -16,7 +16,8 @@ $RECYCLE.BIN/
 *.log
 log.txt
 npm-debug.log*
-
+frontend/.angular/cache/angular-webpack/4a634d878edd47c5a01eefebbd4678bf2dfcb6ab/0.pack
+frontend/.angular/cache/angular-webpack/17927a442856d8c16d4eb171482d6e6678cb7a09/0.pack
 /.angular
 /.idea
 /.ionic
@@ -28,5 +29,10 @@ npm-debug.log*
 /dist
 /node_modules
 /platforms
+/frontend/node_modules/
+/frontend/.angular/cache/babel-webpack/
 /plugins
 /www
+/Appli web
+
+
