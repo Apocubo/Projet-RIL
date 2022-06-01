@@ -1,3 +1,147 @@
-<p>
-  inscription works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inscription.css">
+    <title>PAGE D'INSCRIPTION</title>
+</head>
+<body>
+    <header class="class-principal">
+        <div class="bloc-image">
+            <div class="logo-appli">
+                <img src="img\logo-RE-nouveau 1.png" alt="logo-application">
+            </div>
+            <div class="logo-ministere">
+                <img src="img\Mask Group.png" alt="logo-ministere">
+            </div>
+        </div>
+
+        <div class="action-site">
+            <div class="loupe">
+                <img srcset="https://img.icons8.com/external-becris-lineal-becris/128/external-loupe-mintab-for-ios-becris-lineal-becris.png 2x" alt="loupe_64x64" loading="lazy" width="23" height="23">
+            </div>
+            <div class="menu-rond">
+                <input class="side-menu" type="checkbox" id="side-menu"/>
+                <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+                <nav class="nav">
+                    <ul class="menu">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Ministère</a> </li>
+                        <li><a href="#">Affaires sociales</a></li>
+                        <div class="btn-connexion">
+                            <li><a href="connexion.html">Se connecter</a></li>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="title">
+        <h1>CRÉATION DE VOTRE COMPTE</h1>
+    </div>
+    <div class="texte-inscription">
+        <p>
+            Afin de valider la création de votre compte sur le portail (RE) SOURCES RELATIONNELLES
+            <br>Remplissez le formulaire d’inscription
+        </p>
+        <p>
+            Vous êtes déjà inscrit ? <a href="connexion.html">Connectez vous</a>
+        </p>
+    </div>
+    <div class="inscription-container">
+        <div class="sign-in-form">
+            <form class="inscription" action="#">
+                    <div class="container-principal">
+                        <div class="container-1">
+                        <label for="Nom">Nom *</label>
+                        <input type="text" name="nom" placeholder="Dupont">
+                        <label for="Nom">Sexe</label>
+                            <select name="sexe" id="">
+                                <option value="N">Choisissez votre sexe</option>
+                                <option value="H">Homme</option>
+                                <option value="F">Femme</option>
+                            </select>
+                        <label for="DateNaissance">Téléphone *</label>
+                        <input type="tel" name="telephone" placeholder="+33 6 59  22 14 23">
+                        <label for="DateNaissance">Mot de passe *</label>
+                        <input type="password" name="MotDePasse" placeholder="***************">
+                    </div>
+                    <div class="container-2">
+                        <label for="Nom">Prénom *</label>
+                        <input type="text" name="prenom" placeholder="Lucas">
+                        <label for="DateNaissance">Date De naissance *</label>
+                        <input type="date" name="DateNaissance">
+                        <label for="DateNaissance">Adresse mail *</label>
+                        <input type="email" name="AdresseMail" placeholder="lucas.dupont@mail.com">
+                        <label for="DateNaissance">Ressaisissez le mot de passe *</label>
+                        <input type="password" name="ReMotDePasse" placeholder="***************">
+                    </div>
+                
+                </div>
+                <div class="rgpd-validation">
+                    <div class="RGPD">
+                        <div class="text-rgpd">
+                            <input type="checkbox" name="" id="">
+                            <label class="rgpd-checkbox" for="">En cochant cette case, j’accepte que mes données personnelles soient utilisées dans le cadre de la demande effectuée et indiquée dans ce formulaire. Autre autre traitement ne sera effectué avec mes informations.<br></label>
+                            <br>
+                            <label class="rgpd-checkbox" for="">Pour connaître et exercer vos droits, notamment de retrait de votre consentement à l’utilisation de données collectés par ce formulaire, consultez notre <a href="#">politique de confidentialité.</a></label>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn-inscription" type="submit">Créer votre compte</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer-principal">
+        <div class="footer-grid">
+            <div class="composant-1">
+            <div class="logo-blanc">
+                <img src="img\Logo-RE-nouveau-blanc 1.png" alt="logo-blanc">
+            </div>
+            <div class="infos-resume">
+                <p>Contact</p>
+                
+                <p class="adresse">Ministère des Solidarités et de la Santé
+                14, avenue Duquesne 75350 PARIS 07 SP
+                Téléphone : 01 40 56 60 00
+                </p>
+            </div>
+        </div>
+        
+            <div class="liens-interne">
+                <ul class="internal-links">
+                    <li><a href="">Plan du site</a></li>
+                    <li><a href="">Accessibilité : non conforme</a></li>
+                    <li><a href="">Mentions légales</a></li>
+                    <li><a href="">Données personnelles et cookies</a></li>
+                    <li><a href="">Contacts</a></li>
+                    <li><a href="">Archives presse</a></li>
+                </ul>
+            </div>
+            <div class="liens-externe">
+                <ul class="external-links">
+                    <li><a href="">www.legifrance.gouv.fr</a></li>
+                    <li><a href="">www.service public.fr</a></li>
+                    <li><a href="">www.gouvernement.fr</a></li>
+                    <li><a href="">www.france.fr</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="composant-2">
+            <div class="copyrights">
+                <p>Copyright 2022 © (RE)ssources relationelles | Tous droits réservés | <a href="#">Mentions légales</a></p>
+            </div>
+            <div class="signature">
+                <p>Portail web développé par WEB.CO | www.webco.fr | contact@webco.fr</p>
+            </div>
+        </div>
+        
+    </footer>
+</body>
+</html>

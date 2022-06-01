@@ -1,10 +1,15 @@
 <!--Header (menu)-->
 <ion-header>
-  <header class="top-bar">
-    <a href="/home"><img src="../../assets/img/logo-RE-nouveau 1.png" class="logo_index"></a>
-    <a href="https://solidarites-sante.gouv.fr/"><img src="../../assets/img/Mask Group.png" class="logo_index"></a>
-
-    <div class="menu-composants">
+  <header class="class-principal">
+    <div class="bloc-image">
+        <div class="logo-appli">
+            <a href="/home"><img src="../../assets/img/logo-RE-nouveau 1.png" alt="logo-application"></a>
+        </div>
+        <div class="logo-ministere">
+            <a href="https://solidarites-sante.gouv.fr/"><img src="../../assets/img/Mask Group.png" alt="logo-application"></a>
+        </div>
+    </div>
+    <div class="action-site">
       <div class="choice-language">
         <ion-select okText="OK" cancelText="Retour">
           <ion-select-option value="Francais">Francais</ion-select-option>
@@ -12,22 +17,31 @@
           <ion-select-option value="Español">Español</ion-select-option>
         </ion-select>
       </div>
-
+      
       <!--Search Button-->
       <div class="search-button">
         <ion-icon name="search-outline" class="bi"></ion-icon>
       </div>
-
-      <div class="hamburger-menu">
-        <a href="">
-          <ion-icon name="menu-outline" class="bi"></ion-icon>
-        </a>
-
+      <div class="menu-rond">
+          <input class="side-menu" type="checkbox" id="side-menu"/>
+          <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+          <nav class="nav">
+              <ul class="menu">
+                  <li><a href="#">Accueil</a></li>
+                  <li><a href="#">Ministère</a> </li>
+                  <li><a href="#">Affaires sociales</a></li>
+                  <div class="btn-connexion">
+                      <li><a href="#">Se connecter</a></li>
+                  </div>
+              </ul>
+          </nav>
       </div>
     </div>
+    </header>
 
-  </header>
- 
+  </ion-header>
+
+  
 
 
-</ion-header>
+
