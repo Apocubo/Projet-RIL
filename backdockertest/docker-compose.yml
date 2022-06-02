@@ -1,14 +1,18 @@
 version: "2.2"
 services:
   db:
-    build: ./db
+    image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: test
     restart: always
     ports:
      - "3306:3306"
-
+    volumes:
+    #- dbdata:/var/lib/mysql
+    - ./db:/docker-entrypoint-initdb.d/
+    cap_add:
+     - SYS_NICE  # CAP_SYS_NICE
   web:
     build: ./web
     environment:
