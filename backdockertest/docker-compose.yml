@@ -8,10 +8,11 @@ services:
     restart: always
     ports:
      - "3306:3306"
+  
   web:
     build: ./web
     environment:
-      MYSQL_DATABASE: mydb
+      MYSQL_DATABASE: test
       MYSQL_USER: root
       MYSQL_PASSWORD: password
       MYSQL_HOST: db
