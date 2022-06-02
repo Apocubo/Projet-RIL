@@ -6,6 +6,8 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: test
     restart: always
+    port:
+      - "3306:3306"
   web:
     build: ./backend
     environment:
