@@ -1,14 +1,15 @@
-version: "2.2"
+version: "2.3"
 services:
   db:
     build: ./db
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: test
+      MYSQL_DATABASE: mydb
     restart: always
-    port:
-      - "3306:3306"
-  web:
+    ports:
+     - "3306:3306"
+  
+  backend:
     build: ./backend
     environment:
       MYSQL_DATABASE: test
@@ -19,4 +20,15 @@ services:
       - "5000:5000"
     depends_on:
       - db
+    restart: on-failure
+
+  frontend:
+    build: ./frontend
+    environment:
+      MYSQL_DATABASE: test
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: db
+    ports:
+      - "8100:8100"
     restart: on-failure
