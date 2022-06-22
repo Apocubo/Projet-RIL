@@ -18,128 +18,12 @@ header{
 
 a{
     text-decoration: none;
+    cursor: pointer;
 }
 ul{
     list-style: none;
 }
 
-.bloc-image{
-    display: flex;
-}
-
-.action-site{
-    display: flex;
-}
-
-.loupe{
-    width: 38px;
-    height: 38px;
-    background: #FBBC58;
-    border-radius: 50%;
-    margin-right: 20px;
-    padding: 6px;
-}
-
-.loupe img{
-    color: white;
-}
-
-.menu-rond{
-    width: 38px;
-    height: 38px;
-    background: #FBBC58;
-    border-radius: 50%;
-}
-
-/* Nav menu */
-.nav{
-    margin-top: 90px;
-    margin-left: -1388px;
-    width: 100%;
-    height: 355px;
-    position: fixed;
-    background: #FBBC58;
-    overflow: hidden;
-
-}
-.menu a{
-    display: block;
-    padding: 25px;
-    color: white;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-}
-
-.btn-connexion{
-    width: 255px;
-    height: 58px;
-    background-color: white;
-    border-radius: 30px;
-}
-
-.btn-connexion a{
-    color: #FBBC58;
-    padding: 15px 45px;
-}
-
-.nav{
-    max-height: 0;
-    transition: max-height .5s ease-out;
-}
-/* Menu Icon */
-.hamb{
-    cursor: pointer;
-    float: right;
-    padding: 18px 8px;
-}
-/* Style label tag */
-
-.hamb-line {
-    background: white;
-    display: block;
-    height: 2px;
-    position: relative;
-    width: 24px;
-
-} /* Style span tag */
-
-.hamb-line::before,
-.hamb-line::after{
-    background: white;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-}
-.hamb-line::before{
-    top: 5px;
-}
-.hamb-line::after{
-    top: -5px;
-}
-
-.side-menu {
-    display: none;
-} /* Hide checkbox */
-/* Toggle menu icon */
-.side-menu:checked ~ nav{
-    max-height: 100%;
-}
-.side-menu:checked ~ .hamb .hamb-line {
-    background: transparent;
-}
-.side-menu:checked ~ .hamb .hamb-line::before {
-    transform: rotate(-45deg);
-    top:0;
-}
-.side-menu:checked ~ .hamb .hamb-line::after {
-    transform: rotate(45deg);
-    top:0;
-}
 
 .title{
     margin-left: 450px;
@@ -260,7 +144,7 @@ button{
 }
 
 .link-france-connect img{
-    width: 147.81px;
+    width: 147px;
     height: 41px;   
 }
 
@@ -287,6 +171,7 @@ button{
 
 .inscription-link a{
     color: #001BA7;
+
 }
 
 .footer-principal{

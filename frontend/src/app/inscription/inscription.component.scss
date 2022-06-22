@@ -1,0 +1,311 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+}
+
+header{
+    width: 100%;
+    height: 160px;
+    background-color: white;
+    padding: 30px 110px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+.title{
+    margin-left: 420px;
+    margin-right: 420px;
+}
+
+.title h1{
+    margin-top: 54px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-style: normal;
+    line-height: 43px;
+    font-size: 35px;
+    text-align: center;
+    color: #03989E;
+}
+
+.texte-inscription{
+    margin-left: 248px;
+    margin-right: 225px;
+}
+
+.texte-inscription p{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-style: normal;
+    line-height: 19px;
+    font-size: 20px;
+    color: #000000;
+}
+
+.inscription-container{
+    margin: 0 auto;
+    width: 1152px;
+    height: 859px;
+    background: #FBFBFB;
+    box-shadow: 0px 9px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+}
+
+.container-principal{
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-1{
+    display: inline-grid;
+}
+
+.container-2{
+    display: inline-grid;
+}
+
+input[type=text], [type=password], [type=date],
+[type=tel],[type=email]{
+    width: 424px;
+    height: 56px;
+    border: 1px solid #BDBDBD;
+    background: #F7F5F5;
+    border-radius: 3px;
+}
+
+select{
+    width: 424px;
+    height: 56px;
+    border: 1px solid #BDBDBD;
+    background: #F7F5F5;
+    border-radius: 3px;
+}
+label{
+    margin-top: 45px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 28px;
+    color: #000000;
+}
+
+input[type = checkbox]{
+    width: 14px;
+    background: #F7F5F5;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid #BDBDBD;
+}
+
+.rgpd-validation{
+    display: flex;
+}
+
+.RGPD{
+    margin-top: 62px;
+}
+
+.rgpd-checkbox{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    padding-right: 50px;
+    font-style: normal;
+    line-height: 17px;
+    font-size: 14px;
+    color: #000000;
+}
+
+.text-rgpd{
+    margin-left: 75px;
+    margin-right: 80px;
+}
+
+
+.btn-inscription{
+    margin-top: 45px;
+    margin-right: 80px;
+    width: 310px;
+    height: 58px;
+    background: #FBBC58;
+    border-radius: 30px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-style: normal;
+    line-height: 32px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #FFFFFF;
+    border: none;
+}
+
+
+.footer-principal{
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    background: #FF5C5C;
+    padding: 13px 169px 6px 163px;
+}
+
+.footer-grid{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+}
+
+.composant-1{
+    padding: 1px 185px 6px 50px;
+}
+
+.infos-resume p{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 500;
+    color: #FFFFFF; 
+    line-height: 17px;
+}
+
+.internal-links{
+    margin-top: 53px;
+}
+
+.external-links{
+    margin-top: 53px;
+}
+
+.internal-links a{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+.external-links a{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+
+.copyrights p{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-style: normal;
+    line-height: 21px;
+    text-align: center;
+    font-size: 17px;
+    color: #FFFFFF;
+}
+
+.signature p{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-style: normal;
+    line-height: 21px;
+    text-align: center;
+    font-size: 17px;
+    color: #210E0E;
+}
+
+.composant-2{
+    margin: 0;
+}
+
+
+/*Responsive part*/
+
+@media(max-width:850px){
+    
+    header{
+        padding: 10px 15px;
+    }
+    
+    .nav{
+        margin-top: 99px;
+        margin-left: -758px;
+    
+    }
+}
+
+
+@media(max-width:500px){
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100px;
+        padding: 10px 30px;
+    }
+
+    .logo-appli img{
+        width: 204px;
+        height: 82px;
+    }
+
+    .logo-ministere{
+        display: none;
+    }
+
+    .loupe{
+        display: none;
+    }
+
+    .nav{
+        margin-top: 67px;
+        margin-left: -432px;
+    
+    }
+}
+
+@media(max-width:450px){
+    .nav{
+        margin-top: 68px;
+        margin-left: -360px;
+    
+    }
+}
+
+@media(max-width:420px){
+    .nav{
+        margin-top: 68px;
+        margin-left: -344px;
+    
+    }
+}
+
+@media(max-width:400px){
+    .nav{
+        margin-top: 68px;
+        margin-left: -316px;
+    
+    }
+}
+
+@media(max-width:380px){
+    .nav{
+        margin-top: 68px;
+        margin-left: -307px;
+    }
+
+    .container-principal{
+        display: grid;
+    }
+}
+
