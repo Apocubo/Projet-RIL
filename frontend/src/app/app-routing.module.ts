@@ -6,17 +6,17 @@ import { InscriptionComponent } from './inscription/inscription.component';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
-  
+
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  
+
   {
-    path: 'Connexion', component : ConnexionComponent
+    path: 'Connexion', component: ConnexionComponent
   },
 
   {
@@ -29,6 +29,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: []
 })
 export class AppRoutingModule { }
