@@ -149,4 +149,20 @@ app.get("/api/getAllRessources/", (req, res) => {
   });
 });
 
+app.get("/", (req, res) => {
+  connection.query("SELECT * FROM Student", (err, rows) => {
+    if (err) {
+      res.json({
+        success: false,
+        err,
+      });
+    } else {
+      res.json({
+        success: true,
+        rows,
+      });
+    }
+  });
+});
+
 app.listen(5000, () => console.log('listining on port 5000'));
