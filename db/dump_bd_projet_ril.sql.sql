@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   `role_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `role_id_idx` (`role_id` ASC) VISIBLE,
-  CONSTRAINT `role_id`
+  CONSTRAINT `user_role_id`
     FOREIGN KEY (`user_role_id`)
     REFERENCES `mydb`.`roles` (`id`)
     ON DELETE NO ACTION
@@ -84,12 +84,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`messages` (
   PRIMARY KEY (`id`),
   INDEX `conversation_id_idx` (`conversation_id` ASC) VISIBLE,
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  CONSTRAINT `conversation_id`
+  CONSTRAINT `message_conversation_id`
     FOREIGN KEY (`message_conversation_id`)
     REFERENCES `mydb`.`conversations` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `user_id`
+  CONSTRAINT `message_user_id`
     FOREIGN KEY (`message_user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
@@ -144,17 +144,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`ressources` (
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   INDEX `group_id_idx` (`group_id` ASC) VISIBLE,
   INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
-  CONSTRAINT `user_id`
+  CONSTRAINT `ressource_user_id`
     FOREIGN KEY (`ressource_user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `group_id`
+  CONSTRAINT `ressource_group_id`
     FOREIGN KEY (`ressource_group_id`)
     REFERENCES `mydb`.`groups` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `category_id`
+  CONSTRAINT `ressource_category_id`
     FOREIGN KEY (`ressource_category_id`)
     REFERENCES `mydb`.`categories` (`id`)
     ON DELETE NO ACTION
@@ -178,13 +178,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`commentaries` (
   PRIMARY KEY (`id`),
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   INDEX `resource_id_idx` (`resource_id` ASC) VISIBLE,
-  CONSTRAINT `user_id`
+  CONSTRAINT `commentary_user_id`
     FOREIGN KEY (`commentary_user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `resource_id`
-    FOREIGN KEY (`resource_id`)
+  CONSTRAINT `commentary_resource_id`
+    FOREIGN KEY (`commentary_resource_id`)
     REFERENCES `mydb`.`ressources` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
