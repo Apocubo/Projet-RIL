@@ -30,6 +30,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`roles` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `mydb`.`conversations`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`conversations` (
+  `id` INT NOT NULL,
+  `created_at` TIMESTAMP NULL,
+  `updated_at` TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`users`
@@ -58,16 +68,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `mydb`.`conversations`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`conversations` (
-  `id` INT NOT NULL,
-  `created_at` TIMESTAMP NULL,
-  `updated_at` TIMESTAMP NULL,
-  `deleted_at` TIMESTAMP NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -239,6 +240,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-flush privileges;

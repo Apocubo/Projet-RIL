@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 //Description : Route permits the connexion of an user
 app.post("/api/getConnexion", (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');
-  connection.query("SELECT * FROM users WHERE email = " + req.body.email + "AND password = " + req.body.password + ")", (err, rows) => {
+  connection.query('SELECT * FROM users WHERE email = "' + req.body.email + '" AND password = "' + req.body.password + '"', (err, rows) => {
     if (err) {
       res.send({
         object: {
@@ -53,7 +53,10 @@ app.post("/api/getConnexion", (req, res) => {
 //Method : post
 //Description : Route permits the creation of an user
 app.post("/api/getInscription", (req, res) => {
-  connection.query("INSERT INTO users (numberSS, pseudo, lastname, firstname, email, date_of_birth, password, token, created_at, updated_at, deleted_at) VALUES (" + req.body.pseudo + ")", (err, rows) => {
+  const created_at = Date.now();
+  const updated_at = Date.now();
+  const deleted_at = Date.now();
+  connection.query("INSERT INTO users (numberSS, pseudo, lastname, firstname, email, date_of_birth, password, token, created_at, updated_at, deleted_at) VALUES (" + req.body.numberSS + "," + req.body.pseudo + "," + req.body.lastname + "," + req.body.firstname + "," + req.body.email + "," + req.body.date_of_birth + "," + req.body.password + "," + req.body.token + "," + created_at + "," + updated_at + "," + deleted_at, (err, rows) => {
     if (err) {
       res.send({
         object: {
@@ -65,9 +68,9 @@ app.post("/api/getInscription", (req, res) => {
           "date_of_birth": req.body.date_of_birth,
           "password": req.body.password,
           "token": req.body.token,
-          "created_at": req.body.created_at,
-          "updated_at": req.body.updated_at,
-          "deleted_at": req.body.deleted_at,
+          "created_at": created_at,
+          "updated_at": updated_at,
+          "deleted_at": deleted_at,
 
         },
         result: err,
@@ -85,9 +88,9 @@ app.post("/api/getInscription", (req, res) => {
           "date_of_birth": req.body.date_of_birth,
           "password": req.body.password,
           "token": req.body.token,
-          "created_at": req.body.created_at,
-          "updated_at": req.body.updated_at,
-          "deleted_at": req.body.deleted_at,
+          "created_at": created_at,
+          "updated_at": updated_at,
+          "deleted_at": deleted_at,
 
         },
         result: rows,
@@ -95,8 +98,8 @@ app.post("/api/getInscription", (req, res) => {
       })
     }
   });
-});
 
+});
 
 
 //Input : Nothing (parameters in post body request)
