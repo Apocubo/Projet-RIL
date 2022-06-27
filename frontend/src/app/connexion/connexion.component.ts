@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { IssueService } from '../issue.service';
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private user:IssueService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user.getConnexion("test","password").subscribe((test) => {
+      console.log(test);
+    });
+  }
 
 }

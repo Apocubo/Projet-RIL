@@ -1,44 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="inscription.css">
-    <title>PAGE D'INSCRIPTION</title>
-</head>
-<body>
-    <header class="class-principal">
-        <div class="bloc-image">
-            <div class="logo-appli">
-                <img src="img\logo-RE-nouveau 1.png" alt="logo-application">
-            </div>
-            <div class="logo-ministere">
-                <img src="img\Mask Group.png" alt="logo-ministere">
-            </div>
-        </div>
-
-        <div class="action-site">
-            <div class="loupe">
-                <img srcset="https://img.icons8.com/external-becris-lineal-becris/128/external-loupe-mintab-for-ios-becris-lineal-becris.png 2x" alt="loupe_64x64" loading="lazy" width="23" height="23">
-            </div>
-            <div class="menu-rond">
-                <input class="side-menu" type="checkbox" id="side-menu"/>
-                <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
-                <nav class="nav">
-                    <ul class="menu">
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="#">Ministère</a> </li>
-                        <li><a href="#">Affaires sociales</a></li>
-                        <div class="btn-connexion">
-                            <li><a href="connexion.html">Se connecter</a></li>
-                        </div>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <div class="title">
+<ion-content>
+<ion-router-outlet></ion-router-outlet>
+<app-header></app-header>   
+   <div class="title">
         <h1>CRÉATION DE VOTRE COMPTE</h1>
     </div>
     <div class="texte-inscription">
@@ -47,36 +10,40 @@
             <br>Remplissez le formulaire d’inscription
         </p>
         <p>
-            Vous êtes déjà inscrit ? <a href="connexion.html">Connectez vous</a>
+            Vous êtes déjà inscrit ?     <a routerLink="/Connexion">Connectez vous</a>
+
         </p>
     </div>
     <div class="inscription-container">
         <div class="sign-in-form">
-            <form class="inscription" action="#">
+            <form class="inscription" method="post">
                     <div class="container-principal">
                         <div class="container-1">
                         <label for="Nom">Nom *</label>
-                        <input type="text" name="nom" placeholder="Dupont">
+                        <ion-input name="nom" placeholder="Dupont"></ion-input>
                         <label for="Nom">Sexe</label>
-                            <select name="sexe" id="">
-                                <option value="N">Choisissez votre sexe</option>
-                                <option value="H">Homme</option>
-                                <option value="F">Femme</option>
-                            </select>
+                        <ion-item>
+                            <ion-label></ion-label>
+                            <ion-select name="Sexe">
+                                <ion-select-option value="H">Homme</ion-select-option>
+                                <ion-select-option value="F">Femme</ion-select-option>
+                                <ion-select-option value="P">Personnalisé</ion-select-option>
+                            </ion-select>
+                          </ion-item>
                         <label for="DateNaissance">Téléphone *</label>
-                        <input type="tel" name="telephone" placeholder="+33 6 59  22 14 23">
+                        <ion-input type="tel" name="telephone" placeholder="+33 6 59  22 14 23"></ion-input>
                         <label for="DateNaissance">Mot de passe *</label>
-                        <input type="password" name="MotDePasse" placeholder="***************">
+                        <ion-input type="password" name="MotDePasse" placeholder="***************"></ion-input>
                     </div>
                     <div class="container-2">
                         <label for="Nom">Prénom *</label>
-                        <input type="text" name="prenom" placeholder="Lucas">
+                        <ion-input type="text" name="prenom" placeholder="Lucas"></ion-input>
                         <label for="DateNaissance">Date De naissance *</label>
-                        <input type="date" name="DateNaissance">
+                        <ion-input type="date" name="DateNaissance"></ion-input>
                         <label for="DateNaissance">Adresse mail *</label>
-                        <input type="email" name="AdresseMail" placeholder="lucas.dupont@mail.com">
+                        <ion-input type="email" name="AdresseMail" placeholder="lucas.dupont@mail.com"></ion-input>
                         <label for="DateNaissance">Ressaisissez le mot de passe *</label>
-                        <input type="password" name="ReMotDePasse" placeholder="***************">
+                        <ion-input type="password" name="ReMotDePasse" placeholder="***************"></ion-input>
                     </div>
                 
                 </div>
@@ -101,7 +68,7 @@
         <div class="footer-grid">
             <div class="composant-1">
             <div class="logo-blanc">
-                <img src="img\Logo-RE-nouveau-blanc 1.png" alt="logo-blanc">
+                <a href="/home"><img src="../../assets/img/Logo-RE-nouveau-blanc.png" alt="logo-blanc"></a>
             </div>
             <div class="infos-resume">
                 <p>Contact</p>
@@ -143,5 +110,4 @@
         </div>
         
     </footer>
-</body>
-</html>
+</ion-content>

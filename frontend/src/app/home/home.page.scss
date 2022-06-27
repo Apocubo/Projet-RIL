@@ -86,18 +86,27 @@ body {
   font-weight: 500;
 }
 
-.card-button-autres-ressources {
+.btn-autre-ressources{
   margin: 0 auto;
-  width: 223px;
-  height: 60px;
-  padding: 15px 22px 15px 22px;
+  width: 280px;
+  height: 45px;
   background: #03989E;
   border-radius: 30px;
+  padding: 10px 35px;
 }
 
-.card-button-autres-ressources a {
-  font-size: 1em;
-  font-weight: bold;
+.final-container{
+  margin : 15px 0;
+}
+
+.btn-autre-ressources a{
+  font-family: 'Montserrat', sans-serif;
   color: rgb(255, 255, 255);
   text-decoration: none;
+}
+
+.text-value{
+  text-align: center;
+  color: #03989E;
+  font-family: 'Montserrat', sans-serif;
 }

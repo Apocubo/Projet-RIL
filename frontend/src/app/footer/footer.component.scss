@@ -1,99 +1,82 @@
-.card-footer {
-    background: #FF5C5C;
-        bottom: 0;
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.footer-principal{
     width: 100%;
-    block-size: auto;
-    height: 450px;
-
+    height: auto;
+    background: #FF5C5C;
+    padding: 13px 169px 6px 163px;
 }
 
-.logo-RE-nouveau-blanc {
-    width: 255px;
-    height: 79px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+.footer-grid{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
 }
 
-/* Contact */
-.contact {
-    font-family: 'Montserrat', sans-serif;
+.composant-1{
+    padding: 1px 185px 6px 50px;
+}
+
+.infos-resume p{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 13px;
+    text-align: center;
+    font-weight: 500;
+    color: #FFFFFF; 
+    line-height: 17px;
+}
+
+.internal-links{
+    margin-top: 53px;
+}
+
+.external-links{
+    margin-top: 53px;
+}
+
+.internal-links a{
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 15px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+.external-links a{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+
+.copyrights p{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-style: normal;
     line-height: 21px;
-    color: #FFFFFF;
     text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-}
-
-.information-app {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.05em;
+    font-size: 17px;
     color: #FFFFFF;
 }
 
-.information-app a {
-    color: blue;
-}
-
-.information-company {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
+.signature p{
+    font-family: 'Montserrat';
     font-weight: 500;
-    font-size: 1.05em;
+    font-style: normal;
+    line-height: 21px;
+    text-align: center;
+    font-size: 17px;
     color: #210E0E;
-
 }
 
-.information-company a{
-
-color: #210E0E;
-text-decoration: none;
-}
-.access-functions {
-    list-style-type: none;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.05em;
-    color: #ffffff;
-    line-height: 1.5em;
-    float: left;
-
-}
-
-.access-functions a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.list-sites-gouv {
-    list-style-type: none;
-
-
-}
-
-.list-sites-gouv a {
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.05em;
-    line-height: 1.5em;
-    color: #ffffff;
-    text-decoration: none;
-    margin-left: 10%;
-
-}
-
-.informations{
-    margin-top: 90px;
-    margin-left: auto;
-    margin-right: auto;
+.composant-2{
+    margin: 0;
 }

@@ -1,54 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="connexion.css">
-    <title>PAGE DE CONNEXION</title>
-</head>
-<body>
-    <header class="class-principal">
-        <div class="bloc-image">
-            <div class="logo-appli">
-                <img src="img\logo-RE-nouveau 1.png" alt="logo-application">
-            </div>
-            <div class="logo-ministere">
-                <img src="img\Mask Group.png" alt="logo-ministere">
-            </div>
-        </div>
-
-        <div class="action-site">
-            <div class="loupe">
-                <img srcset="https://img.icons8.com/external-becris-lineal-becris/128/external-loupe-mintab-for-ios-becris-lineal-becris.png 2x" alt="loupe_64x64" loading="lazy" width="23" height="23">
-            </div>
-            <div class="menu-rond">
-                <input class="side-menu" type="checkbox" id="side-menu"/>
-                <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
-                <nav class="nav">
-                    <ul class="menu">
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="#">Ministère</a> </li>
-                        <li><a href="#">Affaires sociales</a></li>
-                        <div class="btn-connexion">
-                            <li><a href="connexion.html">Se connecter</a></li>
-                        </div>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <div class="title">
-        <h1>CONNECTEZ-VOUS AU PORTAIL (RE) SOURCES RELATIONNELLES</h1>
-    </div>
+<ion-content>
+<ion-router-outlet></ion-router-outlet>
+<app-header></app-header>
+<div class="title">
+    <h1>CONNECTEZ-VOUS AU PORTAIL (RE) SOURCES RELATIONNELLES</h1>
+</div>
     <div class="connexion-container">
         <div class="sign-up-form">
-            <form class="connexion" action="#">
+            <form class="connexion" method="post">
                 <label for="email">Identifiant :</label>
-                <input class="email" type="email" name="email" id="">
+                <ion-input class="email"type="email" name="email" id="email" placeholder="Adresse email"></ion-input>
                 <label for="email">Mot de passe :</label>
-                <input class="password" type="password" name="MotDePasse" id="">
-                <button type="submit">S'identifier</button>
+                <ion-input class="password"type="password" name="password" id="password" placeholder="Mot de passe"></ion-input>
+                <ion-button type="submit">S'identifier</ion-button>
             </form>
             <p><a href="#">Mot de passe oublié ?</a></p>
         </div>
@@ -59,17 +22,16 @@
 
     <div class="france-connect-container">
         <div class="link-france-connect">
-            <img src="img\FranceConnect.jpg" alt="France-connect">
+            <img src="../../assets/img/FranceConnect.jpg" alt="France-connect">
         </div>
         <p class="france-connect-link"><a href="#"> Qu'est-ce que FranceConnect ? </a></p>
-        <p class="inscription-link">Première visite ? Créer votre compte <a href="inscription.html">ici</a></p>
     </div>
 
     <footer class="footer-principal">
         <div class="footer-grid">
             <div class="composant-1">
             <div class="logo-blanc">
-                <img src="img\Logo-RE-nouveau-blanc 1.png" alt="logo-blanc">
+                <a href="/home"><img src="../../assets/img/Logo-RE-nouveau-blanc.png" alt="logo-blanc"></a>
             </div>
             <div class="infos-resume">
                 <p>Contact</p>
@@ -112,5 +74,4 @@
         
     </footer>
     
-</body>
-</html>
+</ion-content>
