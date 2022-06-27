@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   `deleted_at` DATE NULL,
   `role_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `role_id_idx` (`role_id` ASC) VISIBLE,
+  INDEX `role_id_idx` (`role_id` ASC),
   CONSTRAINT `user_role_id`
     FOREIGN KEY (`user_role_id`)
     REFERENCES `mydb`.`roles` (`id`)
@@ -82,8 +82,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`messages` (
   `deleted_at` DATE NULL,
   `user_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `conversation_id_idx` (`conversation_id` ASC) VISIBLE,
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
+  INDEX `conversation_id_idx` (`conversation_id` ASC) ,
+  INDEX `user_id_idx` (`user_id` ASC) ,
   CONSTRAINT `message_conversation_id`
     FOREIGN KEY (`message_conversation_id`)
     REFERENCES `mydb`.`conversations` (`id`)
@@ -141,9 +141,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`ressources` (
   `user_id` INT NULL,
   `group_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  INDEX `group_id_idx` (`group_id` ASC) VISIBLE,
-  INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
+  INDEX `user_id_idx` (`user_id` ASC) ,
+  INDEX `group_id_idx` (`group_id` ASC) ,
+  INDEX `category_id_idx` (`category_id` ASC) ,
   CONSTRAINT `ressource_user_id`
     FOREIGN KEY (`ressource_user_id`)
     REFERENCES `mydb`.`users` (`id`)
@@ -176,8 +176,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`commentaries` (
   `updated_at` DATE NULL,
   `deleted_at` DATE NULL,
   PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  INDEX `resource_id_idx` (`resource_id` ASC) VISIBLE,
+  INDEX `user_id_idx` (`user_id` ASC) ,
+  INDEX `resource_id_idx` (`resource_id` ASC) ,
   CONSTRAINT `commentary_user_id`
     FOREIGN KEY (`commentary_user_id`)
     REFERENCES `mydb`.`users` (`id`)
@@ -199,8 +199,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users_conversations` (
   `user_id` INT NULL,
   `conversation_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  INDEX `conversation_id_idx` (`conversation_id` ASC) VISIBLE,
+  INDEX `user_id_idx` (`user_id` ASC) ,
+  INDEX `conversation_id_idx` (`conversation_id` ASC) ,
   CONSTRAINT `user_id`
     FOREIGN KEY (`users_conversation_user_id`)
     REFERENCES `mydb`.`users` (`id`)
@@ -222,8 +222,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users_groups` (
   `user_id` INT NULL,
   `group_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  INDEX `group_id_idx` (`group_id` ASC) VISIBLE,
+  INDEX `user_id_idx` (`user_id` ASC) ,
+  INDEX `group_id_idx` (`group_id` ASC) ,
   CONSTRAINT `user_id`
     FOREIGN KEY (`users_group_user_id`)
     REFERENCES `mydb`.`users` (`id`)
