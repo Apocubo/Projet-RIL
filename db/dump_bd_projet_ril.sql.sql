@@ -3,9 +3,9 @@
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+-- SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+-- SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+-- SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
 -- Schema mydb
@@ -42,6 +42,33 @@ CREATE TABLE IF NOT EXISTS `mydb`.`conversations` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
+-- Table `mydb`.`groups`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`groups` (
+  `id` INT NOT NULL,
+  `title` VARCHAR(45) NULL,
+  `created_at` TIMESTAMP NULL,
+  `updated_at` TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`categories`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`categories` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `description` VARCHAR(45) NULL,
+  `created_at` TIMESTAMP NULL,
+  `updated_at` TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+
+-- -----------------------------------------------------
 -- Table `mydb`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`users` (
@@ -61,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   PRIMARY KEY (`id`),
   INDEX `role_id_idx` (`role_id` ASC),
   CONSTRAINT `user_role_id`
-    FOREIGN KEY (`user_role_id`)
+    FOREIGN KEY (`role_id`)
     REFERENCES `mydb`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -85,44 +112,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`messages` (
   INDEX `conversation_id_idx` (`conversation_id` ASC) ,
   INDEX `user_id_idx` (`user_id` ASC) ,
   CONSTRAINT `message_conversation_id`
-    FOREIGN KEY (`message_conversation_id`)
+    FOREIGN KEY (`conversation_id`)
     REFERENCES `mydb`.`conversations` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `message_user_id`
-    FOREIGN KEY (`message_user_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`groups`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`groups` (
-  `id` INT NOT NULL,
-  `title` VARCHAR(45) NULL,
-  `created_at` TIMESTAMP NULL,
-  `updated_at` TIMESTAMP NULL,
-  `deleted_at` TIMESTAMP NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`categories`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`categories` (
-  `id` INT NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `description` VARCHAR(45) NULL,
-  `created_at` TIMESTAMP NULL,
-  `updated_at` TIMESTAMP NULL,
-  `deleted_at` TIMESTAMP NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `mydb`.`ressources`
@@ -145,17 +144,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`ressources` (
   INDEX `group_id_idx` (`group_id` ASC) ,
   INDEX `category_id_idx` (`category_id` ASC) ,
   CONSTRAINT `ressource_user_id`
-    FOREIGN KEY (`ressource_user_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `ressource_group_id`
-    FOREIGN KEY (`ressource_group_id`)
+    FOREIGN KEY (`group_id`)
     REFERENCES `mydb`.`groups` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `ressource_category_id`
-    FOREIGN KEY (`ressource_category_id`)
+    FOREIGN KEY (`category_id`)
     REFERENCES `mydb`.`categories` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -179,12 +178,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`commentaries` (
   INDEX `user_id_idx` (`user_id` ASC) ,
   INDEX `resource_id_idx` (`resource_id` ASC) ,
   CONSTRAINT `commentary_user_id`
-    FOREIGN KEY (`commentary_user_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `commentary_resource_id`
-    FOREIGN KEY (`commentary_resource_id`)
+    FOREIGN KEY (`resource_id`)
     REFERENCES `mydb`.`ressources` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -201,13 +200,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users_conversations` (
   PRIMARY KEY (`id`),
   INDEX `user_id_idx` (`user_id` ASC) ,
   INDEX `conversation_id_idx` (`conversation_id` ASC) ,
-  CONSTRAINT `user_id`
-    FOREIGN KEY (`users_conversation_user_id`)
+  CONSTRAINT `users_conversation_user_id`
+    FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `conversation_id`
-    FOREIGN KEY (`users_conversation_conversation_id`)
+  CONSTRAINT `users_conversation_conversation_id`
+    FOREIGN KEY (`conversation_id`)
     REFERENCES `mydb`.`conversations` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -224,19 +223,19 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users_groups` (
   PRIMARY KEY (`id`),
   INDEX `user_id_idx` (`user_id` ASC) ,
   INDEX `group_id_idx` (`group_id` ASC) ,
-  CONSTRAINT `user_id`
-    FOREIGN KEY (`users_group_user_id`)
+  CONSTRAINT `users_group_user_id`
+    FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `group_id`
-    FOREIGN KEY (`users_group_group_id`)
+  CONSTRAINT `users_group_group_id`
+    FOREIGN KEY (`group_id`)
     REFERENCES `mydb`.`groups` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+-- SET SQL_MODE=@OLD_SQL_MODE;
+-- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+-- SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
