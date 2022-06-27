@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   PRIMARY KEY (`id`),
   INDEX `role_id_idx` (`role_id` ASC) VISIBLE,
   CONSTRAINT `role_id`
-    FOREIGN KEY (`role_id`)
+    FOREIGN KEY (`user_role_id`)
     REFERENCES `mydb`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -85,12 +85,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`messages` (
   INDEX `conversation_id_idx` (`conversation_id` ASC) VISIBLE,
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `conversation_id`
-    FOREIGN KEY (`conversation_id`)
+    FOREIGN KEY (`message_conversation_id`)
     REFERENCES `mydb`.`conversations` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `user_id`
-    FOREIGN KEY (`user_id`)
+    FOREIGN KEY (`message_user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -145,17 +145,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`ressources` (
   INDEX `group_id_idx` (`group_id` ASC) VISIBLE,
   INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
   CONSTRAINT `user_id`
-    FOREIGN KEY (`user_id`)
+    FOREIGN KEY (`ressource_user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `group_id`
-    FOREIGN KEY (`group_id`)
+    FOREIGN KEY (`ressource_group_id`)
     REFERENCES `mydb`.`groups` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `category_id`
-    FOREIGN KEY (`category_id`)
+    FOREIGN KEY (`ressource_category_id`)
     REFERENCES `mydb`.`categories` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`commentaries` (
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   INDEX `resource_id_idx` (`resource_id` ASC) VISIBLE,
   CONSTRAINT `user_id`
-    FOREIGN KEY (`user_id`)
+    FOREIGN KEY (`commentary_user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -202,12 +202,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users_conversations` (
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   INDEX `conversation_id_idx` (`conversation_id` ASC) VISIBLE,
   CONSTRAINT `user_id`
-    FOREIGN KEY (`user_id`)
+    FOREIGN KEY (`users_conversation_user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `conversation_id`
-    FOREIGN KEY (`conversation_id`)
+    FOREIGN KEY (`users_conversation_conversation_id`)
     REFERENCES `mydb`.`conversations` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -217,7 +217,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`users_group`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`users_group` (
+CREATE TABLE IF NOT EXISTS `mydb`.`users_groups` (
   `id` INT NOT NULL,
   `user_id` INT NULL,
   `group_id` INT NULL,
@@ -225,12 +225,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users_group` (
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   INDEX `group_id_idx` (`group_id` ASC) VISIBLE,
   CONSTRAINT `user_id`
-    FOREIGN KEY (`user_id`)
+    FOREIGN KEY (`users_group_user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `group_id`
-    FOREIGN KEY (`group_id`)
+    FOREIGN KEY (`users_group_group_id`)
     REFERENCES `mydb`.`groups` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
