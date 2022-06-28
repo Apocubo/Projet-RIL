@@ -23,10 +23,10 @@ services:
       - db
     restart: on-failure
 
-  # #frontend:
-  # #  build: ./frontend
-  #   ports:
-  #     - "8100:8100"
-  #   depends_on:
-  #     - backend
-  #   restart: on-failure
+  frontend:
+    build: ./frontend
+    ports:
+      - "8100:80"
+    depends_on:
+      - backend
+    restart: on-failure

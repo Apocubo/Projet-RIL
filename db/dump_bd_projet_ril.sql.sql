@@ -3,9 +3,9 @@
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+-- SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+-- SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+-- SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
 -- Schema mydb
@@ -24,9 +24,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`roles` (
   `id` INT NOT NULL,
   `role_name` VARCHAR(45) NULL,
   `description` VARCHAR(45) NULL,
-  `created_at` DATE NULL,
-  `updated_at` DATE NULL,
-  `deleted_at` DATE NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -35,11 +35,38 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`conversations` (
   `id` INT NOT NULL,
-  `created_at` TIMESTAMP NULL,
-  `updated_at` TIMESTAMP NULL,
-  `deleted_at` TIMESTAMP NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`groups`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`groups` (
+  `id` INT NOT NULL,
+  `title` VARCHAR(45) NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`categories`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`categories` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `description` VARCHAR(45) NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`users`
@@ -54,14 +81,14 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   `date_of_birth` DATE NULL,
   `password` VARCHAR(45) NULL,
   `token` VARCHAR(45) NULL,
-  `created_at` DATE NULL,
-  `updated_at` DATE NULL,
-  `deleted_at` DATE NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
   `role_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `role_id_idx` (`role_id` ASC) VISIBLE,
+  INDEX `role_id_idx` (`role_id` ASC),
   CONSTRAINT `user_role_id`
-    FOREIGN KEY (`user_role_id`)
+    FOREIGN KEY (`role_id`)
     REFERENCES `mydb`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -77,52 +104,24 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`messages` (
   `id` INT NOT NULL,
   `conversation_id` INT NOT NULL,
-  `created_at` DATE NULL,
-  `updated_at` DATE NULL,
-  `deleted_at` DATE NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
   `user_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `conversation_id_idx` (`conversation_id` ASC) VISIBLE,
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
+  INDEX `conversation_id_idx` (`conversation_id` ASC) ,
+  INDEX `user_id_idx` (`user_id` ASC) ,
   CONSTRAINT `message_conversation_id`
-    FOREIGN KEY (`message_conversation_id`)
+    FOREIGN KEY (`conversation_id`)
     REFERENCES `mydb`.`conversations` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `message_user_id`
-    FOREIGN KEY (`message_user_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`groups`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`groups` (
-  `id` INT NOT NULL,
-  `title` VARCHAR(45) NULL,
-  `created_at` TIMESTAMP NULL,
-  `updated_at` TIMESTAMP NULL,
-  `deleted_at` TIMESTAMP NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`categories`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`categories` (
-  `id` INT NOT NULL,
-  `name` VARCHAR(45) NULL,
-  `description` VARCHAR(45) NULL,
-  `created_at` TIMESTAMP NULL,
-  `updated_at` TIMESTAMP NULL,
-  `deleted_at` TIMESTAMP NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `mydb`.`ressources`
@@ -135,27 +134,27 @@ CREATE TABLE IF NOT EXISTS `mydb`.`ressources` (
   `validation` TINYINT NULL,
   `state` TINYINT NULL,
   `content_link` VARCHAR(45) NULL,
-  `created_at` DATE NULL,
-  `updated_at` DATE NULL,
-  `deleted_at` DATE NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
   `user_id` INT NULL,
   `group_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  INDEX `group_id_idx` (`group_id` ASC) VISIBLE,
-  INDEX `category_id_idx` (`category_id` ASC) VISIBLE,
+  INDEX `user_id_idx` (`user_id` ASC) ,
+  INDEX `group_id_idx` (`group_id` ASC) ,
+  INDEX `category_id_idx` (`category_id` ASC) ,
   CONSTRAINT `ressource_user_id`
-    FOREIGN KEY (`ressource_user_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `ressource_group_id`
-    FOREIGN KEY (`ressource_group_id`)
+    FOREIGN KEY (`group_id`)
     REFERENCES `mydb`.`groups` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `ressource_category_id`
-    FOREIGN KEY (`ressource_category_id`)
+    FOREIGN KEY (`category_id`)
     REFERENCES `mydb`.`categories` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -172,19 +171,19 @@ CREATE TABLE IF NOT EXISTS `mydb`.`commentaries` (
   `pseudo` VARCHAR(45) NULL,
   `resource_id` INT NULL,
   `attachment_link` VARCHAR(45) NULL,
-  `created_at` DATE NULL,
-  `updated_at` DATE NULL,
-  `deleted_at` DATE NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
+  `deleted_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
   PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  INDEX `resource_id_idx` (`resource_id` ASC) VISIBLE,
+  INDEX `user_id_idx` (`user_id` ASC) ,
+  INDEX `resource_id_idx` (`resource_id` ASC) ,
   CONSTRAINT `commentary_user_id`
-    FOREIGN KEY (`commentary_user_id`)
+    FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `commentary_resource_id`
-    FOREIGN KEY (`commentary_resource_id`)
+    FOREIGN KEY (`resource_id`)
     REFERENCES `mydb`.`ressources` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -199,15 +198,15 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users_conversations` (
   `user_id` INT NULL,
   `conversation_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  INDEX `conversation_id_idx` (`conversation_id` ASC) VISIBLE,
-  CONSTRAINT `user_id`
-    FOREIGN KEY (`users_conversation_user_id`)
+  INDEX `user_id_idx` (`user_id` ASC) ,
+  INDEX `conversation_id_idx` (`conversation_id` ASC) ,
+  CONSTRAINT `users_conversation_user_id`
+    FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `conversation_id`
-    FOREIGN KEY (`users_conversation_conversation_id`)
+  CONSTRAINT `users_conversation_conversation_id`
+    FOREIGN KEY (`conversation_id`)
     REFERENCES `mydb`.`conversations` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -222,21 +221,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users_groups` (
   `user_id` INT NULL,
   `group_id` INT NULL,
   PRIMARY KEY (`id`),
-  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
-  INDEX `group_id_idx` (`group_id` ASC) VISIBLE,
-  CONSTRAINT `user_id`
-    FOREIGN KEY (`users_group_user_id`)
+  INDEX `user_id_idx` (`user_id` ASC) ,
+  INDEX `group_id_idx` (`group_id` ASC) ,
+  CONSTRAINT `users_group_user_id`
+    FOREIGN KEY (`user_id`)
     REFERENCES `mydb`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `group_id`
-    FOREIGN KEY (`users_group_group_id`)
+  CONSTRAINT `users_group_group_id`
+    FOREIGN KEY (`group_id`)
     REFERENCES `mydb`.`groups` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+-- SET SQL_MODE=@OLD_SQL_MODE;
+-- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+-- SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
