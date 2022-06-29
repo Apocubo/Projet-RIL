@@ -186,8 +186,6 @@ app.post("/api/CreateRole", (req, res) => {
 
 });
 
-
-
 const add = (x, y) => (+x) + (+y);
 const subtract = (x, y) => (+x) - (+y);
 const multiply = (x, y) => (+x) * (+y);
