@@ -167,6 +167,7 @@ let ConnexionComponent = class ConnexionComponent {
     ngOnInit() {
         this.user.getConnexion("test", "password").subscribe((test) => {
             console.log(test);
+            alert("passe dans le composant");
         });
     }
 };
@@ -248,17 +249,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let IssueService = class IssueService {
     constructor(http) {
         this.http = http;
         this.uri = 'http://localhost:5000';
     }
     getConnexion(email, password) {
+        alert("passe dans le service");
+        const httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__.HttpHeaders({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://localhost:5000',
+                'Access-Control-Allow-Headers': '*',
+                'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT'
+            })
+        };
         const body = {
             email: email,
             password: password,
         };
-        return this.http.post(`${this.uri}/api/getConnexion`, body);
+        return this.http.post(this.uri + '/api/getConnexion', body, httpOptions);
     }
     getInscription(numeroSS, pseudo, lastname, firstname, email, date_of_birth, password, token, created_at, updated_at, deleted_at) {
         const body = {
@@ -624,7 +635,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content>\r\n<ion-router-outlet></ion-router-outlet>\r\n<app-header></app-header>\r\n<div class=\"title\">\r\n    <h1>CONNECTEZ-VOUS AU PORTAIL (RE) SOURCES RELATIONNELLES</h1>\r\n</div>\r\n    <div class=\"connexion-container\">\r\n        <div class=\"sign-up-form\">\r\n            <form class=\"connexion\" method=\"post\">\r\n                <label for=\"email\">Identifiant :</label>\r\n                <ion-input class=\"email\"type=\"email\" name=\"email\" id=\"email\" placeholder=\"Adresse email\"></ion-input>\r\n                <label for=\"email\">Mot de passe :</label>\r\n                <ion-input class=\"password\"type=\"password\" name=\"password\" id=\"password\" placeholder=\"Mot de passe\"></ion-input>\r\n                <ion-button type=\"submit\">S'identifier</ion-button>\r\n            </form>\r\n            <p><a href=\"#\">Mot de passe oublié ?</a></p>\r\n        </div>\r\n    </div>\r\n    <div class=\"separateur\">\r\n        <p>Ou</p>\r\n    </div>\r\n\r\n    <div class=\"france-connect-container\">\r\n        <div class=\"link-france-connect\">\r\n            <img src=\"../../assets/img/FranceConnect.jpg\" alt=\"France-connect\">\r\n        </div>\r\n        <p class=\"france-connect-link\"><a href=\"#\"> Qu'est-ce que FranceConnect ? </a></p>\r\n    </div>\r\n\r\n    <footer class=\"footer-principal\">\r\n        <div class=\"footer-grid\">\r\n            <div class=\"composant-1\">\r\n            <div class=\"logo-blanc\">\r\n                <a href=\"/home\"><img src=\"../../assets/img/Logo-RE-nouveau-blanc.png\" alt=\"logo-blanc\"></a>\r\n            </div>\r\n            <div class=\"infos-resume\">\r\n                <p>Contact</p>\r\n                \r\n                <p class=\"adresse\">Ministère des Solidarités et de la Santé\r\n                14, avenue Duquesne 75350 PARIS 07 SP\r\n                Téléphone : 01 40 56 60 00\r\n                </p>\r\n            </div>\r\n        </div>\r\n        \r\n            <div class=\"liens-interne\">\r\n                <ul class=\"internal-links\">\r\n                    <li><a href=\"\">Plan du site</a></li>\r\n                    <li><a href=\"\">Accessibilité : non conforme</a></li>\r\n                    <li><a href=\"\">Mentions légales</a></li>\r\n                    <li><a href=\"\">Données personnelles et cookies</a></li>\r\n                    <li><a href=\"\">Contacts</a></li>\r\n                    <li><a href=\"\">Archives presse</a></li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"liens-externe\">\r\n                <ul class=\"external-links\">\r\n                    <li><a href=\"\">www.legifrance.gouv.fr</a></li>\r\n                    <li><a href=\"\">www.service public.fr</a></li>\r\n                    <li><a href=\"\">www.gouvernement.fr</a></li>\r\n                    <li><a href=\"\">www.france.fr</a></li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n        \r\n        <div class=\"composant-2\">\r\n            <div class=\"copyrights\">\r\n                <p>Copyright 2022 © (RE)ssources relationelles | Tous droits réservés | <a href=\"#\">Mentions légales</a></p>\r\n            </div>\r\n            <div class=\"signature\">\r\n                <p>Portail web développé par WEB.CO | www.webco.fr | contact@webco.fr</p>\r\n            </div>\r\n        </div>\r\n        \r\n    </footer>\r\n    \r\n</ion-content>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-content>\r\n<app-header></app-header>\r\n<div class=\"title\">\r\n    <h1>CONNECTEZ-VOUS AU PORTAIL (RE) SOURCES RELATIONNELLES</h1>\r\n</div>\r\n    <div class=\"connexion-container\">\r\n        <div class=\"sign-up-form\">\r\n            <form class=\"connexion\" method=\"post\">\r\n                <label for=\"email\">Identifiant :</label>\r\n                <ion-input class=\"email\"type=\"email\" name=\"email\" id=\"email\" placeholder=\"Adresse email\"></ion-input>\r\n                <label for=\"email\">Mot de passe :</label>\r\n                <ion-input class=\"password\"type=\"password\" name=\"password\" id=\"password\" placeholder=\"Mot de passe\"></ion-input>\r\n                <ion-button type=\"submit\">S'identifier</ion-button>\r\n            </form>\r\n            <p><a href=\"#\">Mot de passe oublié ?</a></p>\r\n        </div>\r\n    </div>\r\n    <div class=\"separateur\">\r\n        <p>Ou</p>\r\n    </div>\r\n\r\n    <div class=\"france-connect-container\">\r\n        <div class=\"link-france-connect\">\r\n            <img src=\"../../assets/img/FranceConnect.jpg\" alt=\"France-connect\">\r\n        </div>\r\n        <p class=\"france-connect-link\"><a href=\"#\"> Qu'est-ce que FranceConnect ? </a></p>\r\n    </div>\r\n\r\n    <footer class=\"footer-principal\">\r\n        <div class=\"footer-grid\">\r\n            <div class=\"composant-1\">\r\n            <div class=\"logo-blanc\">\r\n                <a href=\"/home\"><img src=\"../../assets/img/Logo-RE-nouveau-blanc.png\" alt=\"logo-blanc\"></a>\r\n            </div>\r\n            <div class=\"infos-resume\">\r\n                <p>Contact</p>\r\n                \r\n                <p class=\"adresse\">Ministère des Solidarités et de la Santé\r\n                14, avenue Duquesne 75350 PARIS 07 SP\r\n                Téléphone : 01 40 56 60 00\r\n                </p>\r\n            </div>\r\n        </div>\r\n        \r\n            <div class=\"liens-interne\">\r\n                <ul class=\"internal-links\">\r\n                    <li><a href=\"\">Plan du site</a></li>\r\n                    <li><a href=\"\">Accessibilité : non conforme</a></li>\r\n                    <li><a href=\"\">Mentions légales</a></li>\r\n                    <li><a href=\"\">Données personnelles et cookies</a></li>\r\n                    <li><a href=\"\">Contacts</a></li>\r\n                    <li><a href=\"\">Archives presse</a></li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"liens-externe\">\r\n                <ul class=\"external-links\">\r\n                    <li><a href=\"\">www.legifrance.gouv.fr</a></li>\r\n                    <li><a href=\"\">www.service public.fr</a></li>\r\n                    <li><a href=\"\">www.gouvernement.fr</a></li>\r\n                    <li><a href=\"\">www.france.fr</a></li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n        \r\n        <div class=\"composant-2\">\r\n            <div class=\"copyrights\">\r\n                <p>Copyright 2022 © (RE)ssources relationelles | Tous droits réservés | <a href=\"#\">Mentions légales</a></p>\r\n            </div>\r\n            <div class=\"signature\">\r\n                <p>Portail web développé par WEB.CO | www.webco.fr | contact@webco.fr</p>\r\n            </div>\r\n        </div>\r\n        \r\n    </footer>\r\n    \r\n</ion-content>");
 
 /***/ }),
 

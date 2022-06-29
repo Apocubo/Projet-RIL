@@ -26,9 +26,10 @@ app.use(bodyParser.json());
 //Method : post
 //Description : Route permits the connexion of an user
 app.post("/api/getConnexion", (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');
   var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
-
+  res.setHeader("Access-Control-Allow-Origin", "*")
+  res.setHeader("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With")
   connection.query('SELECT * FROM users WHERE email = "' + req.body.email + '" AND password = "' + password + '"', (err, rows) => {
     if (err) {
       res.send({
