@@ -4,19 +4,16 @@ name: MY-GITHUB-CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-     branches: [ main ]
-  # pull_request:
-  #   branches: [ master ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  # workflow_dispatch:
+     branches: [ main, master ]
+  pull_request:
+     branches: [ main, master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: node-18.4.0
+    runs-on: node-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:        
@@ -27,14 +24,10 @@ jobs:
   # This workflow contains a single job called "build"
   test:
     # The type of runner that the job will run on
-    runs-on: node-18.4.0
+    runs-on: node-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:        
-      - name: unit tests
+      - name: test
         run: |
           npm run test
-
-      # - name: e2e tests
-      #  run: |
-      #    npm run e2e
