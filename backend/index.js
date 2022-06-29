@@ -187,4 +187,18 @@ app.post("/api/CreateRole", (req, res) => {
 });
 
 
+
+const add = (x, y) => (+x) + (+y);
+const subtract = (x, y) => (+x) - (+y);
+const multiply = (x, y) => (+x) * (+y);
+const divide = (x, y) => (+x) / (+y);
+
+module.exports = {
+  add,
+  subtract,
+  multiply,
+  divide,
+}
+
 app.listen(5000, () => console.log('listining on port 5000'));
+
