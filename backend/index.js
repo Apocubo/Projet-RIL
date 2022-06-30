@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 //Input : Nothing (parameters in post body request)
 //Method : post
-//Description : Route permits the connexion of an user
+//Description : Route permits the connexion of a user
 app.post("/api/getConnexion", (req, res) => {
   var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
   res.setHeader("Access-Control-Allow-Origin", "*")
@@ -57,7 +57,7 @@ app.post("/api/getConnexion", (req, res) => {
 
 //Input : Nothing (parameters in post body request)
 //Method : post
-//Description : Route permits the creation of an user
+//Description : Route permits the creation of a user
 app.post("/api/getInscription", (req, res) => {
   var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
   var number_ss = crypto.createHash('sha256').update(req.body.numberSS).digest('hex');
@@ -118,7 +118,7 @@ app.post("/api/getInscription", (req, res) => {
 
 //Input : Nothing (parameters in post body request)
 //Method : get
-//Description : Route permits to return data from one ressource
+//Description : Route permits to return data from all ressource
 app.get("/api/getRessourcebyID/id/:id", (req, res) => {
   connection.query("SELECT * FROM ressources WHERE id = " + req.params.id + ")", (err, rows) => {
     if (err) {
@@ -165,7 +165,7 @@ app.get("/api/getAllRessources/", (req, res) => {
 
 //Input : Nothing (parameters in post body request)
 //Method : post
-//Description : Route permits the creation of an user
+//Description : Route permits the creation of a user
 app.post("/api/CreateRole", (req, res) => {
   connection.query("INSERT INTO roles (id, role_name, description, created_at, updated_at, deleted_at) VALUES (" + req.body.id + "," + toString(req.body.role_name) + "," + toString(req.body.description) + "," + null + "," + null + "," + null + ")", (err, rows) => {
     if (err) {
@@ -205,4 +205,3 @@ module.exports = {
 /*Partie test pour Pipe line */
 
 app.listen(5000, () => console.log('listining on port 5000'));
-
