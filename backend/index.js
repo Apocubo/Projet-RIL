@@ -91,7 +91,7 @@ app.post("/api/getInscription", (req, res) => {
                 "date_of_birth": req.body.date_of_birth,
                 "password": password,
                 "token": req.body.token,
-                "role":1,
+                "role": 1,
               },
               result: rows,
               success: true
