@@ -78,8 +78,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users` (
   `lastname` VARCHAR(45) NULL,
   `firstname` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
-  `date_of_birth` DATE NULL,
-  `password` VARCHAR(45) NULL,
+  `date_of_birth` VARCHAR(10) NULL,
+  `password` VARCHAR(255) NULL,
   `token` VARCHAR(45) NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NULL,
@@ -235,6 +235,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users_groups` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
+INSERT INTO roles (id, role_name, description) VALUES (1,"Citoyen", "Citoyen connecté")
 
 -- SET SQL_MODE=@OLD_SQL_MODE;
 -- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

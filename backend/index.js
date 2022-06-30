@@ -1,9 +1,9 @@
 const mysql = require("mysql");
 let express = require('express');
-
 let bodyParser = require("body-parser");
-const app = express();
 var crypto = require('crypto');
+const app = express();
+
 
 const connection = mysql.createPool({
   host: process.env.MYSQL_HOST || "localhost",
@@ -60,6 +60,8 @@ app.post("/api/getConnexion", (req, res) => {
 //Description : Route permits the creation of an user
 app.post("/api/getInscription", (req, res) => {
   var password = crypto.createHash('sha256').update(req.body.password).digest('hex');
+  var number_ss = crypto.createHash('sha256').update(req.body.numberSS).digest('hex');
+
   connection.query("SELECT number_ss FROM users WHERE number_ss =" + req.body.numberSS, (err, rows_verif) => {
     if (err) {
       res.send({
@@ -81,7 +83,7 @@ app.post("/api/getInscription", (req, res) => {
             res.send({
               message: "le numero securité social est accepté car pas de doublon",
               object: {
-                "numberSS": req.body.numberSS,
+                "numberSS": number_ss,
                 "pseudo": req.body.pseudo,
                 "lastname": req.body.lastname,
                 "firstname": req.body.firstname,
@@ -89,6 +91,7 @@ app.post("/api/getInscription", (req, res) => {
                 "date_of_birth": req.body.date_of_birth,
                 "password": password,
                 "token": req.body.token,
+                "role":1,
               },
               result: rows,
               success: true
@@ -96,7 +99,7 @@ app.post("/api/getInscription", (req, res) => {
           }
         });
       }
-      else{
+      else {
         res.send({
           message: "le numero securité social n'est pas accepté",
         })
@@ -104,7 +107,7 @@ app.post("/api/getInscription", (req, res) => {
 
 
     }
-    
+
   })
 
 

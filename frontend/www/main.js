@@ -167,7 +167,7 @@ let ConnexionComponent = class ConnexionComponent {
     ngOnInit() {
         this.user.getConnexion("test", "password").subscribe((test) => {
             console.log(test);
-            alert("passe dans le composant");
+            alert("passe dans le composant connexion");
         });
     }
 };
