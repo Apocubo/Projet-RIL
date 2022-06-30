@@ -7,10 +7,10 @@ import { IssueService } from '../issue.service';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor(private user:IssueService) {}
+  constructor(private user: IssueService) { }
 
   ngOnInit() {
-    this.user.getConnexion("test","password").subscribe((test) => {
+    this.user.getConnexion("test", "password").subscribe((test) => {
       console.log(test);
       alert("passe dans le composant connexion");
     });
